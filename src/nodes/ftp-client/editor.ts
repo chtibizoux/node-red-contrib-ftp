@@ -6,6 +6,7 @@ registerEditor<FTPClientProps>({
 	color: "BurlyWood",
 	defaults: {
 		ftp: { value: "", type: "ftp-config", required: true },
+		output: { value: "file", required: true },
 		operation: { value: "list", required: true },
 		filename: { value: "" },
 		localFilename: { value: "" },
@@ -21,19 +22,33 @@ registerEditor<FTPClientProps>({
 		return this.name ? "node_label_italic" : "";
 	},
 	oneditprepare: () => {
-		const filename = $(".input-filename-row");
-		const localFilename = $(".input-localFilename-row");
+		const outputSelect = $("#node-input-output");
+		const operationSelect = $("#node-input-operation");
 
-		$("#node-input-operation").on("change", () => {
-			const id = $("#node-input-operation option:selected").val();
+		const outputRow = $("#input-output-row");
+		const localFilenameRow = $("#input-localFilename-row");
 
-			if (id === "put" || id === "get" || id === "append") {
-				filename.show();
-				localFilename.show();
+		function updateUI() {
+			const operation = operationSelect.val();
+			const outputType = outputSelect.val();
+
+			if (operation === "get") {
+				outputRow.show();
 			} else {
-				filename.show();
-				localFilename.hide();
+				outputRow.hide();
 			}
-		});
+			if (
+				(operation === "get" && outputType === "file") ||
+				operation === "put" ||
+				operation === "append"
+			) {
+				localFilenameRow.show();
+			} else {
+				localFilenameRow.hide();
+			}
+		}
+
+		outputSelect.on("change", updateUI);
+		operationSelect.on("change", updateUI);
 	},
 });

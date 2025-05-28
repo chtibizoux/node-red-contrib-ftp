@@ -1,12 +1,27 @@
 {
-    "label" : {
-        "filename" : "Filename",
-        "localFilename" : "Local Filename",
-        "name" : "Name"
-    },
-    "placeholder" : {
-        "filename" : "Filename",
-        "localFilename" : "Local Filename",
-        "name" : "Name"
-    }
+	"label": {
+		"ftp": "Add new FTP Server",
+		"operation": "Operation",
+		"output": "Output",
+		"filename": "Filename",
+		"localFilename": "Local Filename",
+		"name": "Name"
+	},
+	"placeholder": {
+		"filename": "foo.txt",
+		"localFilename": "bar.txt",
+		"name": "My FTP Server"
+	},
+	"operation-option": {
+		"list": "list",
+		"get": "get",
+		"put": "put",
+		"append": "append",
+		"delete": "delete",
+		"mkdir": "mkdir"
+	},
+	"output-option": {
+		"file": "file",
+		"string": "string"
+	}
 }

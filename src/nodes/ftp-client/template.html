@@ -1,23 +1,30 @@
 <div class="form-row">
-    <label for="node-input-ftp"><i class="fa fa-user"></i> Add new FTP Server</label>
+    <label for="node-input-ftp"><i class="fa fa-user"></i> <span data-i18n="label.ftp"></span></label>
     <input type="text" id="node-input-ftp">
 </div>
 <div class="form-row">
-    <label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+    <label for="node-input-operation"><i class="fa fa-wrench"></i> <span data-i18n="label.operation"></span></label>
     <select type="text" id="node-input-operation">
-        <option value="list">list</option>
-        <option value="get">get</option>
-        <option value="put">put</option>
-        <option value="append">append</option>
-        <option value="delete">delete</option>
-        <option value="mkdir">mkdir</option>
+        <option value="list" data-i18n="operation-option.list"></option>
+        <option value="get" data-i18n="operation-option.get"></option>
+        <option value="put" data-i18n="operation-option.put"></option>
+        <option value="append" data-i18n="operation-option.append"></option>
+        <option value="delete" data-i18n="operation-option.delete"></option>
+        <option value="mkdir" data-i18n="operation-option.mkdir"></option>
     </select>
 </div>
-<div class="form-row input-filename-row hidden">
+<div class="form-row" id="node-input-output-row">
+    <label for="node-input-output"><i class="fa fa-wrench"></i> <span data-i18n="label.output"></span></label>
+    <select type="text" id="node-input-output">
+        <option value="file" data-i18n="output-option.file"></option>
+        <option value="string" data-i18n="output-option.string"></option>
+    </select>
+</div>
+<div class="form-row" id="node-input-filename-row">
     <label for="node-input-filename"><i class="fa fa-file"></i> <span data-i18n="label.filename"></span></label>
     <input type="text" id="node-input-filename" data-i18n="[placeholder]placeholder.filename">
 </div>
-<div class="form-row input-localFilename-row hidden">
+<div class="form-row" id="node-input-localFilename-row hidden">
     <label for="node-input-localFilename">
         <i class="fa fa-file"></i> <span data-i18n="label.localFilename"></span>
     </label>

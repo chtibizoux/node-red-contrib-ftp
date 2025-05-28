@@ -17,7 +17,7 @@ class FtpClientNode extends NodeWraper<FTPClientProps> {
 		if (this.ftpNode) {
 			this.on("input", this.onInput);
 		} else {
-			this.error("missing ftp configuration");
+			this.error("Missing ftp configuration");
 		}
 	}
 
@@ -77,11 +77,28 @@ class FtpClientNode extends NodeWraper<FTPClientProps> {
 							sendError(error);
 							return;
 						}
-						stream.once("close", () => {
-							conn.end();
-							sendSuccess(`Get operation successful. ${localFilename}`);
-						});
-						stream.pipe(fs.createWriteStream(localFilename));
+						if (this.config.output === "file") {
+							stream.once("close", () => {
+								conn.end();
+								sendSuccess(`Get operation successful. ${localFilename}`);
+							});
+							stream.pipe(fs.createWriteStream(localFilename));
+						} else {
+							stream.setEncoding("utf-8");
+
+							stream.once("close", () => {
+								conn.end();
+							});
+
+							stream.once("end", () => {
+								sendSuccess(result);
+							});
+
+							let result = "";
+							stream.on("data", (chunk) => {
+								result += chunk;
+							});
+						}
 					});
 					break;
 				case "put":

@@ -4,4 +4,5 @@ export interface FTPClientProps {
 	filename: string;
 	localFilename: string;
 	name: string;
+	output: "file" | "string";
 }
