@@ -2,7 +2,6 @@
 	"name": "@chtibizoux/node-red-contrib-ftp",
 	"version": "1.0.0",
 	"description": "A Node-RED ftp client.",
-	"private": false,
 	"keywords": ["Node-RED", "FTP", "client"],
 	"homepage": "https://github.com/chtibizoux/node-red-contrib-ftp#readme",
 	"bugs": {
@@ -36,5 +35,8 @@
 	},
 	"dependencies": {
 		"ftp": "^0.3.10"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
