@@ -1,7 +1,7 @@
 import type { NodeAPI } from "node-red";
 import { NodeWraper, registerNode } from "../../utils/node";
 import type { WithNodeDef } from "../../utils/types";
-import type { FTPConfigProps, FTPConfigCreds } from "./types";
+import type { FTPConfigCreds, FTPConfigProps } from "./types";
 
 class FtpConfigNode extends NodeWraper<FTPConfigProps, FTPConfigCreds> {
 	public options: Omit<FTPConfigProps, "name"> & FTPConfigCreds;

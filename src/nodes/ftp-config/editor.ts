@@ -1,5 +1,5 @@
 import { registerEditor } from "../../utils/editor";
-import type { FTPConfigProps, FTPConfigCreds } from "./types";
+import type { FTPConfigCreds, FTPConfigProps } from "./types";
 
 registerEditor<FTPConfigProps, FTPConfigCreds>({
 	category: "config",

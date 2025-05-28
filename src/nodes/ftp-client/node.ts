@@ -1,10 +1,10 @@
-import type { NodeAPI, NodeMessageInFlow } from "node-red";
+import FtpClient from "ftp";
+import type { NodeAPI } from "node-red";
+import fs from "node:fs";
 import { NodeWraper, registerNode } from "../../utils/node";
 import type { Listener, WithNodeDef } from "../../utils/types";
-import type { FTPClientProps } from "./types";
-import FtpClient from "ftp";
 import type { FtpConfigNode } from "../ftp-config/node";
-import fs from "node:fs";
+import type { FTPClientProps } from "./types";
 
 class FtpClientNode extends NodeWraper<FTPClientProps> {
 	ftpNode: FtpConfigNode;
@@ -38,11 +38,11 @@ class FtpClientNode extends NodeWraper<FTPClientProps> {
 			msg.filename = filename;
 			msg.localFilename = localFilename;
 
-            if (send) {
-                send(msg);
-            } else {
-                this.send(msg);
-            }
+			if (send) {
+				send(msg);
+			} else {
+				this.send(msg);
+			}
 			if (done) {
 				done();
 			}
@@ -50,11 +50,11 @@ class FtpClientNode extends NodeWraper<FTPClientProps> {
 
 		const sendError = (error: Error) => {
 			this.status({ fill: "red", shape: "ring", text: "failed" });
-            if (done) {
-                done(error);
-            } else {
-                this.error(error, msg);
-            }
+			if (done) {
+				done(error);
+			} else {
+				this.error(error, msg);
+			}
 		};
 
 		conn.on("ready", () => {
