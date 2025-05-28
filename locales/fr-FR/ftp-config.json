@@ -1,0 +1,14 @@
+{
+	"label": {
+		"name": "Nom",
+		"host": "Hôte",
+		"port": "Port",
+		"user": "Utilisateur",
+		"password": "Mot de passe",
+		"connTimeout": "Délai de connexion",
+		"pasvTimeout": "Délai PASV",
+		"keepalive": "Maintenir actif",
+		"secure": "Chiffrement de la connexion de données",
+		"secureOptions": "Options de sécurité"
+	}
+}

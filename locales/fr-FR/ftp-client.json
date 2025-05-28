@@ -1,0 +1,27 @@
+{
+	"label": {
+		"ftp": "Ajouter un nouveau serveur FTP",
+		"operation": "Opération",
+		"output": "Sortie",
+		"filename": "Nom du fichier",
+		"localFilename": "Nom du fichier local",
+		"name": "Nom"
+	},
+	"placeholder": {
+		"filename": "foo.txt",
+		"localFilename": "bar.txt",
+		"name": "Mon serveur FTP"
+	},
+	"operation-option": {
+		"list": "lister",
+		"get": "obtenir",
+		"put": "envoyer",
+		"append": "ajouter",
+		"delete": "supprimer",
+		"mkdir": "créer dossier"
+	},
+	"output-option": {
+		"file": "fichier",
+		"string": "texte"
+	}
+}
