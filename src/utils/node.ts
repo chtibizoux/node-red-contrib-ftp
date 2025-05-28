@@ -14,10 +14,12 @@ export abstract class NodeWraper<
 		this.config = config;
 
 		RED.nodes.createNode(this, config);
+
+		this.getCredentials = NodeWraper.prototype.getCredentials.bind(this);
 	}
 
 	protected getCredentials() {
-		return this.RED.nodes.getCredentials(this.config.id) as TCreds;
+		return this.RED.nodes.getCredentials(this.config.id) as TCreds | undefined;
 	}
 }
 

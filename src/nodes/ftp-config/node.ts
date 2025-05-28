@@ -18,7 +18,7 @@ class FtpConfigNode extends NodeWraper<FTPConfigProps, FTPConfigCreds> {
 			port: config.port || 21,
 			secure: config.secure || false,
 			user: config.user || "anonymous",
-			password: credentials.password || "anonymous@",
+			password: credentials?.password || "anonymous@",
 			connTimeout: config.connTimeout || 10000,
 			pasvTimeout: config.pasvTimeout || 10000,
 			keepalive: config.keepalive || 10000,
@@ -28,4 +28,8 @@ class FtpConfigNode extends NodeWraper<FTPConfigProps, FTPConfigCreds> {
 
 export type { FtpConfigNode };
 
-export default registerNode(FtpConfigNode);
+export default registerNode(FtpConfigNode, {
+	credentials: {
+		password: { type: "password" },
+	},
+});

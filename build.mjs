@@ -1,10 +1,10 @@
-import { rollup } from "rollup";
-import typescript from "@rollup/plugin-typescript";
 import resolve from "@rollup/plugin-node-resolve";
-import terser from "@rollup/plugin-terser";
 import replace from "@rollup/plugin-replace";
-import fs from "node:fs/promises";
+import terser from "@rollup/plugin-terser";
+import typescript from "@rollup/plugin-typescript";
 import { minify } from "html-minifier-terser";
+import fs from "node:fs/promises";
+import { rollup } from "rollup";
 import pkg from "./package.json" with { type: "json" };
 
 const BUILD_DIR = "dist";
