@@ -1,0 +1,12 @@
+{
+    "label" : {
+        "filename" : "Filename",
+        "localFilename" : "Local Filename",
+        "name" : "Name"
+    },
+    "placeholder" : {
+        "filename" : "Filename",
+        "localFilename" : "Local Filename",
+        "name" : "Name"
+    }
+}
