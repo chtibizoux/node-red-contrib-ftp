@@ -1,9 +1,4 @@
-import type {
-	Node,
-	NodeAPI,
-	NodeCredentials,
-	NodeSettings,
-} from "node-red";
+import type { Node, NodeAPI, NodeCredentials, NodeSettings } from "node-red";
 import type { WithNodeDef } from "./types";
 
 // biome-ignore lint/suspicious/noUnsafeDeclarationMerging: Node-RED's createNode adds Node methods at runtime
@@ -20,7 +15,7 @@ export abstract class NodeWraper<
 
 		RED.nodes.createNode(this, config);
 	}
-	
+
 	protected getCredentials() {
 		return this.RED.nodes.getCredentials(this.config.id) as TCreds;
 	}
@@ -50,11 +45,12 @@ export function registerNode<
 	},
 ) {
 	return (RED: NodeAPI) => {
-		RED.nodes.registerType(
+		RED.nodes.registerType<TNode, WithNodeDef<TProps>, TSets, TCreds>(
 			__NAME__,
-			(nodeDef: WithNodeDef<TProps>) => new nodeConstructor(RED, nodeDef),
+			function (nodeDef) {
+				nodeConstructor.call(this, RED, nodeDef);
+			},
 			opts,
 		);
 	};
 }
-
