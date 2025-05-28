@@ -1,6 +1,6 @@
 {
 	"name": "@chtibizoux/node-red-contrib-ftp",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "A Node-RED ftp client.",
 	"keywords": ["node-red", "FTP", "client"],
 	"homepage": "https://github.com/chtibizoux/node-red-contrib-ftp#readme",
