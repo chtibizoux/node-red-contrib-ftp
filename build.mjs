@@ -38,6 +38,7 @@ packageJson["node-red"] = {
 await fs.writeFile(`${BUILD_DIR}/package.json`, JSON.stringify(packageJson));
 
 await fs.cp("locales", `${BUILD_DIR}/locales`, { recursive: true });
+await fs.copyFile("README.md", `${BUILD_DIR}/README.md`);
 
 async function buildJsFile(name) {
 	const bundle = await rollup({
