@@ -84,7 +84,7 @@ class FtpClientNode extends NodeWraper<FTPClientProps> {
 							});
 							stream.pipe(fs.createWriteStream(localFilename));
 						} else {
-							stream.setEncoding("utf-8");
+							stream.setEncoding(this.config.encoding);
 
 							stream.once("close", () => {
 								conn.end();

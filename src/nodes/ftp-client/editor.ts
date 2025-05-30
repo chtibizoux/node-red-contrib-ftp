@@ -10,6 +10,7 @@ registerEditor<FTPClientProps>({
 		operation: { value: "list", required: true },
 		filename: { value: "" },
 		localFilename: { value: "" },
+		encoding: { value: "utf-8", required: true },
 		name: { value: "" },
 	},
 	inputs: 1,
@@ -26,6 +27,7 @@ registerEditor<FTPClientProps>({
 		const operationSelect = $("#node-input-operation");
 
 		const outputRow = $("#input-output-row");
+		const encodingRow = $("#input-encoding-row");
 		const localFilenameRow = $("#input-localFilename-row");
 
 		function updateUI() {
@@ -36,6 +38,11 @@ registerEditor<FTPClientProps>({
 				outputRow.show();
 			} else {
 				outputRow.hide();
+			}
+			if (operation === "get" && outputType === "string") {
+				encodingRow.show();
+			} else {
+				encodingRow.hide();
 			}
 			if (
 				(operation === "get" && outputType === "file") ||
