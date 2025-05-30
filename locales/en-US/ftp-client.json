@@ -5,7 +5,8 @@
 		"output": "Output",
 		"filename": "Filename",
 		"localFilename": "Local Filename",
-		"name": "Name"
+		"name": "Name",
+		"encoding": "Encoding"
 	},
 	"placeholder": {
 		"filename": "foo.txt",
